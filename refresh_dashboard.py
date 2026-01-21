@@ -96,7 +96,9 @@ if __name__ == "__main__":
                     
                     fast_count += 1
             else:
-                logger.warning("No image received, skipping this cycle.")
+                # Failure! Sleep for only 30 seconds and try again
+                logger.warning("No image received. Retrying in 30 seconds...")
+                time.sleep(30)
 
             logger.info(f"Cycle complete. Sleeping for {FAST_INTERVAL} seconds...")
             time.sleep(FAST_INTERVAL)
