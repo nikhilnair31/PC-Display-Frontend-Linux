@@ -97,7 +97,7 @@ if __name__ == "__main__":
                     # Fast init does not sleep, keeping the LUT active in controller RAM
                     epd.init_fast()
                     epd.display(epd.getbuffer(img))
-                    
+                    epd.sleep()
                     fast_count += 1
             else:
                 # Failure! Sleep for only 30 seconds and try again
