@@ -73,11 +73,15 @@ if __name__ == "__main__":
                     reason = "Initial Startup" if first_run else "Cycle/Time Limit"
                     logger.info(f">>> FULL REFRESH (Reason: {reason})")
                     
+                    # 1. Initialize for full refresh
                     epd.init()
-                    logger.info("Clearing display...")
-                    epd.Clear() # Full clear to reset all microcapsules
                     
-                    logger.info("Writing buffer...")
+                    # 2. REMOVE epd.Clear() - This causes the unnecessary extra flashing
+                    # epd.Clear() 
+                    
+                    # 3. Just display the image. This command performs 
+                    # its own clear/draw cycle.
+                    logger.info("Writing buffer (Full Refresh)...")
                     epd.display(epd.getbuffer(img))
                     
                     logger.info("Putting display to sleep...")
@@ -86,7 +90,7 @@ if __name__ == "__main__":
                     # Reset counters
                     fast_count = 0
                     last_full_refresh = now
-                    first_run = False 
+                    first_run = False
                 else:
                     logger.info(f">>> FAST REFRESH (Cycle: {fast_count + 1}/{FULL_REFRESH_EVERY})")
                     
