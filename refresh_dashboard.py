@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 load_dotenv()
 SERVER = os.getenv("SERVER")
 # We do a full refresh on startup, then every 100 fast cycles
-FULL_REFRESH_EVERY = int(os.getenv("FULL_REFRESH_EVERY", 100))
+FULL_REFRESH_EVERY = int(os.getenv("FULL_REFRESH_EVERY", 10))
 FULL_REFRESH_MAX_TIME = int(os.getenv("FULL_REFRESH_MAX_TIME", 21600)) 
 FAST_INTERVAL = int(os.getenv("FAST_INTERVAL", 1200))
 
