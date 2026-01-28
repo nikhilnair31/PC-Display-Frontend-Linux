@@ -3,13 +3,15 @@
 import sys
 import os
 
-# Point to the 'lib' folder found by your find command
+# Set the pin factory for gpiozero before importing waveshare
+os.environ['GPIOZERO_PIN_FACTORY'] = 'lgpio'
+
+# Point to the 'lib' folder
 sys.path.append('/home/nikhil/e-Paper/RaspberryPi_JetsonNano/python/lib')
 
 import io
 from flask import Flask, request
 from PIL import Image
-# Now we import directly from waveshare_epd because we added /lib to the path
 from waveshare_epd import epd7in5_V2
 from waveshare_epd import epdconfig
 
