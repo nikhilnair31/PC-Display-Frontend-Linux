@@ -1,5 +1,10 @@
 # receiver.py
 
+import sys
+import os
+# Adds the current directory to the path so waveshare_epd can be found
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 import io
 from flask import Flask, request
 from PIL import Image

@@ -1,0 +1,13 @@
+[Unit]
+Description=RPi E-Ink Image Receiver
+After=network.target
+
+[Service]
+User=nikhil
+WorkingDirectory=/home/nikhil/Projects/E_Dashboard
+# Ensure you use the path to your python with Flask installed
+ExecStart=/home/nikhil/Projects/E_Dashboard/env/bin/python /home/nikhil/Projects/E_Dashboard/recei>
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
