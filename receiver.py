@@ -1,7 +1,6 @@
 # receiver.py
 
-import sys
-import os
+import os, sys, threading
 
 # Set the pin factory for gpiozero before importing waveshare
 os.environ['GPIOZERO_PIN_FACTORY'] = 'lgpio'
