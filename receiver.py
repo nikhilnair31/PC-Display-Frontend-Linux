@@ -2,14 +2,16 @@
 
 import sys
 import os
-# Adds the current directory to the path so waveshare_epd can be found
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+# Point to the 'lib' folder found by your find command
+sys.path.append('/home/nikhil/e-Paper/RaspberryPi_JetsonNano/python/lib')
 
 import io
 from flask import Flask, request
 from PIL import Image
-from waveshare_epd.lib.waveshare_epd import epd7in5_V2
-from waveshare_epd.lib.waveshare_epd import epdconfig
+# Now we import directly from waveshare_epd because we added /lib to the path
+from waveshare_epd import epd7in5_V2
+from waveshare_epd import epdconfig
 
 app = Flask(__name__)
 epd = epd7in5_V2.EPD()
